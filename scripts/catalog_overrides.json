@@ -1,0 +1,24 @@
+[
+  {
+    "id": "supplement-zee5-tumbadchi-manjula",
+    "name": "Tumbadchi Manjula",
+    "type": "movie",
+    "year": 2026,
+    "language": "Marathi",
+    "genres": [
+      "Comedy",
+      "Horror"
+    ],
+    "rating": 7.2,
+    "services": [
+      "zee5"
+    ],
+    "links": {
+      "zee5": "https://www.zee5.com/ml/embed/0-0-1z5967438"
+    },
+    "poster": "",
+    "color": "#5d4b43",
+    "summary": "Chaos grips a quiet village when a mysterious young woman’s arrival awakens a dark past.",
+    "imdbId": "tt41534445"
+  }
+]
