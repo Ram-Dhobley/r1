@@ -7,6 +7,10 @@ const region = process.env.TMDB_REGION || "IN";
 const language = process.env.TMDB_LANGUAGE || "en-IN";
 const pages = Number(process.env.TMDB_PAGES || 3);
 const output = process.env.CATALOG_OUTPUT || "dist/data/catalog.json";
+const discoveryLanguages = (process.env.TMDB_LANGUAGES || "en,hi,ta,te,ml,kn,bn,mr,pa")
+  .split(",")
+  .map(code => code.trim())
+  .filter(Boolean);
 const headers = { Authorization: `Bearer ${token}`, accept: "application/json" };
 const baseUrl = "https://api.themoviedb.org/3";
 
@@ -54,7 +58,7 @@ const genreMaps = {
   tv: new Map((await tmdb("/genre/tv/list", { language })).genres.map(row => [row.id, row.name])),
 };
 
-async function discover(type, page) {
+async function discover(type, page, originalLanguage) {
   return tmdb(`/discover/${type}`, {
     language,
     watch_region: region,
@@ -62,7 +66,8 @@ async function discover(type, page) {
     include_adult: false,
     include_video: false,
     sort_by: "popularity.desc",
-    vote_count_gte: 30,
+    vote_count_gte: originalLanguage ? 10 : 30,
+    ...(originalLanguage ? { with_original_language: originalLanguage } : {}),
     page,
   });
 }
@@ -93,10 +98,13 @@ async function enrich(item, type) {
 }
 
 const raw = [];
+const profiles = [...discoveryLanguages.map(originalLanguage => ({ originalLanguage })), { originalLanguage: null }];
 for (const type of ["movie", "tv"]) {
-  for (let page = 1; page <= pages; page += 1) {
-    const result = await discover(type, page);
-    raw.push(...result.results.map(item => ({ item, type })));
+  for (const profile of profiles) {
+    for (let page = 1; page <= pages; page += 1) {
+      const result = await discover(type, page, profile.originalLanguage);
+      raw.push(...result.results.map(item => ({ item, type })));
+    }
   }
 }
 
