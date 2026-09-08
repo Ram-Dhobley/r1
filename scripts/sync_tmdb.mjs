@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const token = process.env.TMDB_READ_TOKEN;
 if (!token) throw new Error("TMDB_READ_TOKEN is required");
@@ -131,13 +131,16 @@ for (const row of raw) {
   else merged.set(key, { ...row, services: new Set([row.service]) });
 }
 const enriched = [...merged.values()].map(row => toTitle(row.item, row.type, [...row.services]));
+const overrides = JSON.parse(await readFile(new URL("./catalog_overrides.json", import.meta.url), "utf8"));
+const items = [...new Map([...enriched, ...overrides].map(item => [item.id, item])).values()];
 
 const catalog = {
   updatedAt: new Date().toISOString(),
-  source: "TMDB",
+  source: "TMDB + curated provider supplements",
   region,
-  coverage: `Provider catalogue, up to ${providerPages} pages per supported service and media type`,
-  items: enriched.sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name)),
+  coverage: `Provider catalogue, up to ${providerPages} pages per supported service and media type, plus curated supplements`,
+  supplements: overrides.length,
+  items: items.sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name)),
 };
 await mkdir(output.split("/").slice(0, -1).join("/") || ".", { recursive: true });
 await writeFile(output, `${JSON.stringify(catalog, null, 2)}\n`);
