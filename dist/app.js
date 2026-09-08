@@ -181,9 +181,16 @@ function updateDataStatus(message) {
 async function loadCatalog(force = false) {
   updateDataStatus("Refreshing…");
   try {
-    const response = await fetch(`data/catalog.json${force ? `?t=${Date.now()}` : ""}`, { cache: force ? "no-store" : "default" });
-    if (!response.ok) throw new Error("Live catalog not available");
-    const payload = await response.json();
+    const cacheSuffix = force ? `?t=${Date.now()}` : "";
+    const sources = [`data/catalog.json${cacheSuffix}`, `https://ram-dhobley.github.io/r1/data/catalog.json${cacheSuffix}`];
+    let payload;
+    for (const source of sources) {
+      try {
+        const response = await fetch(source, { cache: force ? "no-store" : "default" });
+        if (response.ok) { payload = await response.json(); break; }
+      } catch (error) { /* try the next catalog source */ }
+    }
+    if (!payload) throw new Error("Live catalog not available");
     const incoming = Array.isArray(payload) ? payload : payload.items;
     if (!Array.isArray(incoming) || !incoming.length) throw new Error("Empty catalog");
     titles = incoming; liveMode = true; lastUpdated = payload.updatedAt || null;
