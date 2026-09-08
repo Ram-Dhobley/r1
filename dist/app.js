@@ -35,6 +35,7 @@ let lastUpdated = null;
 const savedServices = JSON.parse(localStorage.getItem("watchwise-services") || "null");
 const state = { selectedServices: new Set(savedServices || ["netflix", "prime", "jiohotstar"]), language: "all", genre: "all", type: "all", sort: "rating", query: "", saved: new Set(JSON.parse(localStorage.getItem("watchwise-saved") || "[]").map(String)) };
 const $ = (id) => document.getElementById(id);
+const counterNamespace = "watchwise.ramdhobley.chatgpt.site";
 
 function serviceById(id) { return services.find(service => service.id === id); }
 
@@ -149,9 +150,10 @@ function openDetails(id) {
     const service = serviceById(id);
     const storedLink = title.links && title.links[id];
     const url = isGenericSearchLink(storedLink) ? serviceDeepLink(id, title.name) : storedLink;
-    return `<a class="watch-link" target="_blank" rel="noreferrer" href="${url}">${service.name} ↗</a>`;
+    return `<a class="watch-link" data-watch-click="true" target="_blank" rel="noreferrer" href="${url}">${service.name} ↗</a>`;
   }).join("");
   $("dialogContent").innerHTML = `<div class="dialog-hero" style="--poster:${title.color}"><h2>${title.name}</h2></div><div class="dialog-body"><div class="dialog-meta"><span>${title.type === "series" ? "Series" : "Movie"}</span><span>${title.year}</span><span>${title.language}</span><span>★ ${title.rating} IMDb</span></div><p class="dialog-summary">${title.summary}</p><div class="watch-label">Available on your services</div><div class="watch-links">${links || "<span class=\"muted\">Select a matching service to see where to watch.</span>"}</div></div>`;
+  document.querySelectorAll("[data-watch-click]").forEach(link => link.addEventListener("click", trackWatchClick));
   $("detailDialog").showModal();
 }
 
@@ -176,6 +178,41 @@ $("helpDialog").addEventListener("click", event => { if (event.target === $("hel
 
 function updateDataStatus(message) {
   $("dataStatus").innerHTML = `<span class="tiny-dot"></span>${message}`;
+}
+
+function todayKey() {
+  const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
+  return `${parts.find(part => part.type === "year").value}-${parts.find(part => part.type === "month").value}-${parts.find(part => part.type === "day").value}`;
+}
+
+function watchCounterUrl(key, query = "") {
+  return `https://counterapi.com/api/${counterNamespace}/watch/${key}${query ? `?${query}` : ""}`;
+}
+
+function showWatchCount(value) {
+  if (typeof value === "number") $("watchClicks").textContent = value.toLocaleString();
+}
+
+async function loadWatchClickCount() {
+  try {
+    const response = await fetch(watchCounterUrl(todayKey(), "readOnly=true&unique=true"), { cache: "no-store" });
+    if (!response.ok) throw new Error("Counter unavailable");
+    const result = await response.json();
+    showWatchCount(result.value);
+  } catch (error) {
+    $("watchClicks").textContent = "—";
+  }
+}
+
+async function trackWatchClick() {
+  try {
+    const response = await fetch(watchCounterUrl(todayKey(), "unique=true"), { cache: "no-store" });
+    if (!response.ok) throw new Error("Counter unavailable");
+    const result = await response.json();
+    showWatchCount(result.value);
+  } catch (error) {
+    // The outbound OTT link should still work when the optional counter is unavailable.
+  }
 }
 
 async function loadCatalog(force = false) {
@@ -204,4 +241,4 @@ async function loadCatalog(force = false) {
   }
 }
 
-populateFilters(); renderServices(); updateStatus(); $("savedCount").textContent = state.saved.size; renderResults(); loadCatalog();
+populateFilters(); renderServices(); updateStatus(); $("savedCount").textContent = state.saved.size; renderResults(); loadCatalog(); loadWatchClickCount();
