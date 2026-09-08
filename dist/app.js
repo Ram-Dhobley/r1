@@ -38,6 +38,26 @@ const $ = (id) => document.getElementById(id);
 
 function serviceById(id) { return services.find(service => service.id === id); }
 
+const serviceSearchScopes = {
+  netflix: "netflix.com/in/title",
+  prime: "primevideo.com/detail",
+  jiohotstar: "hotstar.com/in",
+  sonyliv: "sonyliv.com",
+  zee5: "zee5.com",
+  apple: "tv.apple.com",
+  lionsgate: "lionsgateplay.com",
+};
+
+function serviceDeepLink(id, name) {
+  const scope = serviceSearchScopes[id] || id;
+  const query = encodeURIComponent(`site:${scope} "${name}"`);
+  return `https://www.google.com/search?btnI=1&q=${query}`;
+}
+
+function isGenericSearchLink(url) {
+  return !url || /google\.com\/search|netflix\.com\/search|primevideo\.com\/search|hotstar\.com\/in\/search/i.test(url);
+}
+
 function renderServices() {
   $("serviceGrid").innerHTML = services.map(service => `
     <button class="service-chip ${state.selectedServices.has(service.id) ? "selected" : ""}" data-service="${service.id}" aria-pressed="${state.selectedServices.has(service.id)}">
@@ -127,9 +147,8 @@ function openDetails(id) {
   if (!title) return;
   const links = title.services.filter(id => state.selectedServices.has(id)).map(id => {
     const service = serviceById(id);
-    if (title.links && title.links[id]) return `<a class="watch-link" target="_blank" rel="noreferrer" href="${title.links[id]}">${service.name} ↗</a>`;
-    const query = encodeURIComponent(title.name);
-    const url = id === "netflix" ? `https://www.netflix.com/search?q=${query}` : id === "prime" ? `https://www.primevideo.com/search/ref=atv_nb_sug?phrase=${query}` : id === "jiohotstar" ? `https://www.hotstar.com/in/search?q=${query}` : id === "apple" ? "https://tv.apple.com/" : `https://www.google.com/search?q=${encodeURIComponent(service.name + " " + title.name)}`;
+    const storedLink = title.links && title.links[id];
+    const url = isGenericSearchLink(storedLink) ? serviceDeepLink(id, title.name) : storedLink;
     return `<a class="watch-link" target="_blank" rel="noreferrer" href="${url}">${service.name} ↗</a>`;
   }).join("");
   $("dialogContent").innerHTML = `<div class="dialog-hero" style="--poster:${title.color}"><h2>${title.name}</h2></div><div class="dialog-body"><div class="dialog-meta"><span>${title.type === "series" ? "Series" : "Movie"}</span><span>${title.year}</span><span>${title.language}</span><span>★ ${title.rating} IMDb</span></div><p class="dialog-summary">${title.summary}</p><div class="watch-label">Available on your services</div><div class="watch-links">${links || "<span class=\"muted\">Select a matching service to see where to watch.</span>"}</div></div>`;
