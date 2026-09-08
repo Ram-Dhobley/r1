@@ -6,6 +6,7 @@ on:
     branches: [master]
     paths:
       - scripts/sync_tmdb.mjs
+      - scripts/catalog_overrides.json
       - .github/workflows/sync-catalog.yml
   schedule:
     - cron: "17 2 * * *"
