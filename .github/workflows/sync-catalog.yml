@@ -23,7 +23,8 @@ jobs:
           TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
           TMDB_REGION: IN
           TMDB_LANGUAGE: en-IN
-          TMDB_PAGES: 3
+          TMDB_PAGES: 4
+          TMDB_LANGUAGES: en,hi,ta,te,ml,kn,bn,mr,pa
           CATALOG_OUTPUT: dist/data/catalog.json
         run: node scripts/sync_tmdb.mjs
       - name: Commit refreshed catalog
