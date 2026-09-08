@@ -38,14 +38,18 @@ function languageName(code) {
   return ({ en: "English", hi: "Hindi", ta: "Tamil", te: "Telugu", ml: "Malayalam", kn: "Kannada", bn: "Bengali", mr: "Marathi", pa: "Punjabi", ko: "Korean", ja: "Japanese", es: "Spanish", fr: "French" })[code] || code?.toUpperCase() || "Other";
 }
 
-function serviceSearchUrl(id, name) {
-  const query = encodeURIComponent(name);
-  if (id === "netflix") return `https://www.netflix.com/search?q=${query}`;
-  if (id === "prime") return `https://www.primevideo.com/search/ref=atv_nb_sug?phrase=${query}`;
-  if (id === "jiohotstar") return `https://www.hotstar.com/in/search?q=${query}`;
-  if (id === "apple") return "https://tv.apple.com/";
-  const domains = { sonyliv: "sonyliv.com", zee5: "zee5.com", lionsgate: "lionsgateplay.com" };
-  return `https://www.google.com/search?q=${encodeURIComponent(`${domains[id] || id} ${name}`)}`;
+function serviceDeepLink(id, name) {
+  const scopes = {
+    netflix: "netflix.com/in/title",
+    prime: "primevideo.com/detail",
+    jiohotstar: "hotstar.com/in",
+    sonyliv: "sonyliv.com",
+    zee5: "zee5.com",
+    apple: "tv.apple.com",
+    lionsgate: "lionsgateplay.com",
+  };
+  const query = encodeURIComponent(`site:${scopes[id] || id} "${name}"`);
+  return `https://www.google.com/search?btnI=1&q=${query}`;
 }
 
 function colorFor(id) {
@@ -90,7 +94,7 @@ async function enrich(item, type) {
     genres: (item.genre_ids || []).map(id => genreMaps[type].get(id)).filter(Boolean),
     rating: Number((item.vote_average || 0).toFixed(1)),
     services: mapped,
-    links: Object.fromEntries(mapped.map(id => [id, serviceSearchUrl(id, name)])),
+    links: Object.fromEntries(mapped.map(id => [id, serviceDeepLink(id, name)])),
     poster: item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : "",
     color: colorFor(item.id),
     summary: item.overview || "No summary available.",
