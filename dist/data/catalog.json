@@ -1,0 +1,1124 @@
+{
+  "updatedAt": "2026-09-08T07:31:25.178Z",
+  "source": "TMDB",
+  "region": "IN",
+  "items": [
+    {
+      "id": "tmdb-movie-980431",
+      "tmdbId": 980431,
+      "name": "Avatar Aang: The Last Airbender",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Family"
+      ],
+      "rating": 9.2,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Avatar%20Aang%3A%20The%20Last%20Airbender"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
+      "color": "#6f3025",
+      "summary": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve."
+    },
+    {
+      "id": "tmdb-tv-1396",
+      "tmdbId": 1396,
+      "name": "Breaking Bad",
+      "type": "series",
+      "year": 2008,
+      "language": "English",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "rating": 9,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Breaking%20Bad"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
+      "color": "#596f89",
+      "summary": "Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of only two years left to live. He becomes filled with a sense of fearlessness and an unrelenting desire to secure his family's financial future at any cost as he enters the dangerous world of drugs and crime."
+    },
+    {
+      "id": "tmdb-movie-1621552",
+      "tmdbId": 1621552,
+      "name": "Facing El Chapo",
+      "type": "movie",
+      "year": 2026,
+      "language": "Spanish",
+      "genres": [
+        "Crime",
+        "Action",
+        "Thriller"
+      ],
+      "rating": 8.8,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Facing%20El%20Chapo"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/alpf5v4UqSFawPmG9RX03Or4BDk.jpg",
+      "color": "#423a66",
+      "summary": "Two Mexican officers must survive the final hours of their shift after crossing a ruthless cartel boss."
+    },
+    {
+      "id": "tmdb-tv-60625",
+      "tmdbId": 60625,
+      "name": "Rick and Morty",
+      "type": "series",
+      "year": 2013,
+      "language": "English",
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Sci-Fi & Fantasy",
+        "Action & Adventure"
+      ],
+      "rating": 8.7,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Rick%20and%20Morty"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+      "color": "#46634e",
+      "summary": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe."
+    },
+    {
+      "id": "tmdb-movie-238",
+      "tmdbId": 238,
+      "name": "The Godfather",
+      "type": "movie",
+      "year": 2025,
+      "language": "English",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "rating": 8.7,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=The%20Godfather"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+      "color": "#4d6267",
+      "summary": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
+    },
+    {
+      "id": "tmdb-tv-1408",
+      "tmdbId": 1408,
+      "name": "House",
+      "type": "series",
+      "year": 2004,
+      "language": "English",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 8.6,
+      "services": [
+        "netflix",
+        "jiohotstar"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=House",
+        "jiohotstar": "https://www.hotstar.com/in/search?q=House"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg",
+      "color": "#4d6267",
+      "summary": "Dr. Gregory House, a drug-addicted, unconventional, misanthropic medical genius, leads a team of diagnosticians at the fictional Princeton–Plainsboro Teaching Hospital in New Jersey."
+    },
+    {
+      "id": "tmdb-movie-687163",
+      "tmdbId": 687163,
+      "name": "Project Hail Mary",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "rating": 8.6,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Project%20Hail%20Mary"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+      "color": "#556b7e",
+      "summary": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction."
+    },
+    {
+      "id": "tmdb-tv-2316",
+      "tmdbId": 2316,
+      "name": "The Office",
+      "type": "series",
+      "year": 2005,
+      "language": "English",
+      "genres": [
+        "Comedy"
+      ],
+      "rating": 8.6,
+      "services": [
+        "netflix",
+        "prime",
+        "jiohotstar"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=The%20Office",
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=The%20Office",
+        "jiohotstar": "https://www.hotstar.com/in/search?q=The%20Office"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/7DJKHzAi83BmQrWLrYYOqcoKfhR.jpg",
+      "color": "#596f89",
+      "summary": "The everyday lives of office employees in the Scranton, Pennsylvania branch of the fictional Dunder Mifflin Paper Company."
+    },
+    {
+      "id": "tmdb-tv-1399",
+      "tmdbId": 1399,
+      "name": "Game of Thrones",
+      "type": "series",
+      "year": 2011,
+      "language": "English",
+      "genres": [
+        "Sci-Fi & Fantasy",
+        "Drama",
+        "Action & Adventure"
+      ],
+      "rating": 8.5,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Game%20of%20Thrones"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+      "color": "#aa6b4b",
+      "summary": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond."
+    },
+    {
+      "id": "tmdb-movie-157336",
+      "tmdbId": 157336,
+      "name": "Interstellar",
+      "type": "movie",
+      "year": 2014,
+      "language": "English",
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Science Fiction"
+      ],
+      "rating": 8.5,
+      "services": [
+        "prime",
+        "jiohotstar"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Interstellar",
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Interstellar"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+      "color": "#596f89",
+      "summary": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage."
+    },
+    {
+      "id": "tmdb-tv-71712",
+      "tmdbId": 71712,
+      "name": "The Good Doctor",
+      "type": "series",
+      "year": 2017,
+      "language": "English",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 8.5,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=The%20Good%20Doctor"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/luhKkdD80qe62fwop6sdrXK9jUT.jpg",
+      "color": "#423a66",
+      "summary": "Shaun Murphy, a young surgeon with autism and savant syndrome, relocates from a quiet country life to join a prestigious hospital's surgical unit. Unable to personally connect with those around him, Shaun uses his extraordinary medical gifts to save lives and challenge the skepticism of his colleagues."
+    },
+    {
+      "id": "tmdb-tv-79744",
+      "tmdbId": 79744,
+      "name": "The Rookie",
+      "type": "series",
+      "year": 2018,
+      "language": "English",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Comedy"
+      ],
+      "rating": 8.5,
+      "services": [
+        "netflix",
+        "lionsgate"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=The%20Rookie",
+        "lionsgate": "https://www.google.com/search?q=lionsgateplay.com%20The%20Rookie"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+      "color": "#a27b55",
+      "summary": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis."
+    },
+    {
+      "id": "tmdb-tv-30984",
+      "tmdbId": 30984,
+      "name": "Bleach",
+      "type": "series",
+      "year": 2004,
+      "language": "Japanese",
+      "genres": [
+        "Action & Adventure",
+        "Animation",
+        "Sci-Fi & Fantasy"
+      ],
+      "rating": 8.4,
+      "services": [
+        "netflix",
+        "sonyliv"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Bleach",
+        "sonyliv": "https://www.google.com/search?q=sonyliv.com%20Bleach"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+      "color": "#a27b55",
+      "summary": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil."
+    },
+    {
+      "id": "tmdb-tv-94664",
+      "tmdbId": 94664,
+      "name": "Mushoku Tensei: Jobless Reincarnation",
+      "type": "series",
+      "year": 2021,
+      "language": "Japanese",
+      "genres": [
+        "Action & Adventure",
+        "Animation",
+        "Sci-Fi & Fantasy"
+      ],
+      "rating": 8.4,
+      "services": [
+        "netflix",
+        "prime",
+        "jiohotstar"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Mushoku%20Tensei%3A%20Jobless%20Reincarnation",
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Mushoku%20Tensei%3A%20Jobless%20Reincarnation",
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Mushoku%20Tensei%3A%20Jobless%20Reincarnation"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
+      "color": "#a27b55",
+      "summary": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!"
+    },
+    {
+      "id": "tmdb-tv-97546",
+      "tmdbId": 97546,
+      "name": "Ted Lasso",
+      "type": "series",
+      "year": 2020,
+      "language": "English",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "services": [
+        "apple"
+      ],
+      "links": {
+        "apple": "https://tv.apple.com/"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
+      "color": "#596f89",
+      "summary": "Ted Lasso, an American football coach, moves to England when he's hired to manage a soccer team—despite having no experience. With cynical players and a doubtful town, will he get them to see the Ted Lasso Way?"
+    },
+    {
+      "id": "tmdb-tv-5920",
+      "tmdbId": 5920,
+      "name": "The Mentalist",
+      "type": "series",
+      "year": 2008,
+      "language": "English",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "rating": 8.4,
+      "services": [
+        "netflix",
+        "prime"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=The%20Mentalist",
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=The%20Mentalist"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+      "color": "#50777e",
+      "summary": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation."
+    },
+    {
+      "id": "tmdb-tv-1622",
+      "tmdbId": 1622,
+      "name": "Supernatural",
+      "type": "series",
+      "year": 2005,
+      "language": "English",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi & Fantasy"
+      ],
+      "rating": 8.3,
+      "services": [
+        "prime",
+        "jiohotstar"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Supernatural",
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Supernatural"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
+      "color": "#423a66",
+      "summary": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. "
+    },
+    {
+      "id": "tmdb-movie-299534",
+      "tmdbId": 299534,
+      "name": "Avengers: Endgame",
+      "type": "movie",
+      "year": 2019,
+      "language": "English",
+      "genres": [
+        "Adventure",
+        "Science Fiction",
+        "Action"
+      ],
+      "rating": 8.2,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Avengers%3A%20Endgame"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
+      "color": "#a27b55",
+      "summary": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store."
+    },
+    {
+      "id": "tmdb-movie-299536",
+      "tmdbId": 299536,
+      "name": "Avengers: Infinity War",
+      "type": "movie",
+      "year": 2018,
+      "language": "English",
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "rating": 8.2,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Avengers%3A%20Infinity%20War"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+      "color": "#596f89",
+      "summary": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain."
+    },
+    {
+      "id": "tmdb-tv-1416",
+      "tmdbId": 1416,
+      "name": "Grey's Anatomy",
+      "type": "series",
+      "year": 2005,
+      "language": "English",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 8.2,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Grey's%20Anatomy"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
+      "color": "#596f89",
+      "summary": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital."
+    },
+    {
+      "id": "tmdb-tv-34307",
+      "tmdbId": 34307,
+      "name": "Shameless",
+      "type": "series",
+      "year": 2011,
+      "language": "English",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "rating": 8.2,
+      "services": [
+        "netflix",
+        "prime"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Shameless",
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Shameless"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg",
+      "color": "#726d46",
+      "summary": "Chicagoan Frank Gallagher is the proud single dad of six smart, industrious, independent kids, who without him would be... perhaps better off. When Frank's not at the bar spending what little money they have, he's passed out on the floor. But the kids have found ways to grow up in spite of him. They may not be like any family you know, but they make no apologies for being exactly who they are."
+    },
+    {
+      "id": "tmdb-tv-125988",
+      "tmdbId": 125988,
+      "name": "Silo",
+      "type": "series",
+      "year": 2023,
+      "language": "English",
+      "genres": [
+        "Sci-Fi & Fantasy",
+        "Drama"
+      ],
+      "rating": 8.2,
+      "services": [
+        "apple"
+      ],
+      "links": {
+        "apple": "https://tv.apple.com/"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+      "color": "#4d6267",
+      "summary": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo."
+    },
+    {
+      "id": "tmdb-movie-1226863",
+      "tmdbId": 1226863,
+      "name": "The Super Mario Galaxy Movie",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Family",
+        "Comedy",
+        "Adventure",
+        "Fantasy",
+        "Animation"
+      ],
+      "rating": 8.2,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=The%20Super%20Mario%20Galaxy%20Movie"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/eJGWx219ZcEMVQJhAgMiqo8tYY.jpg",
+      "color": "#556b7e",
+      "summary": "Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir's crusade."
+    },
+    {
+      "id": "tmdb-tv-113962",
+      "tmdbId": 113962,
+      "name": "Lioness",
+      "type": "series",
+      "year": 2023,
+      "language": "English",
+      "genres": [
+        "Drama",
+        "War & Politics"
+      ],
+      "rating": 8.1,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Lioness"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+      "color": "#423a66",
+      "summary": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives."
+    },
+    {
+      "id": "tmdb-tv-108978",
+      "tmdbId": 108978,
+      "name": "Reacher",
+      "type": "series",
+      "year": 2022,
+      "language": "English",
+      "genres": [
+        "Action & Adventure",
+        "Crime"
+      ],
+      "rating": 8.1,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Reacher"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
+      "color": "#4d6267",
+      "summary": "Jack Reacher, a veteran military police investigator, has just recently entered civilian life. Reacher is a drifter, carrying no phone and the barest of essentials as he travels the country and explores the nation he once served."
+    },
+    {
+      "id": "tmdb-movie-24428",
+      "tmdbId": 24428,
+      "name": "The Avengers",
+      "type": "movie",
+      "year": 2012,
+      "language": "English",
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "rating": 8.1,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=The%20Avengers"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
+      "color": "#4d6267",
+      "summary": "When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!"
+    },
+    {
+      "id": "tmdb-tv-2734",
+      "tmdbId": 2734,
+      "name": "Law & Order: Special Victims Unit",
+      "type": "series",
+      "year": 1999,
+      "language": "English",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "rating": 8,
+      "services": [
+        "netflix",
+        "prime",
+        "jiohotstar"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Law%20%26%20Order%3A%20Special%20Victims%20Unit",
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Law%20%26%20Order%3A%20Special%20Victims%20Unit",
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Law%20%26%20Order%3A%20Special%20Victims%20Unit"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+      "color": "#a27b55",
+      "summary": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories."
+    },
+    {
+      "id": "tmdb-movie-1137844",
+      "tmdbId": 1137844,
+      "name": "Mayday",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "rating": 8,
+      "services": [
+        "apple"
+      ],
+      "links": {
+        "apple": "https://tv.apple.com/"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
+      "color": "#a27b55",
+      "summary": "When a U.S. Navy pilot on a top-secret mission during the Cold War gets trapped behind enemy lines, his only chance at survival is to form an alliance with an eccentric ex-KGB agent."
+    },
+    {
+      "id": "tmdb-movie-634649",
+      "tmdbId": 634649,
+      "name": "Spider-Man: No Way Home",
+      "type": "movie",
+      "year": 2021,
+      "language": "English",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "rating": 7.9,
+      "services": [
+        "jiohotstar",
+        "sonyliv"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Spider-Man%3A%20No%20Way%20Home",
+        "sonyliv": "https://www.google.com/search?q=sonyliv.com%20Spider-Man%3A%20No%20Way%20Home"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+      "color": "#aa6b4b",
+      "summary": "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man."
+    },
+    {
+      "id": "tmdb-tv-236235",
+      "tmdbId": 236235,
+      "name": "The Gentlemen",
+      "type": "series",
+      "year": 2024,
+      "language": "English",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Crime"
+      ],
+      "rating": 7.8,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=The%20Gentlemen"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
+      "color": "#46634e",
+      "summary": "When aristocratic Eddie inherits the family estate, he discovers that it's home to an enormous weed empire — and its proprietors aren't going anywhere."
+    },
+    {
+      "id": "tmdb-tv-299952",
+      "tmdbId": 299952,
+      "name": "The Early Spring",
+      "type": "series",
+      "year": 2026,
+      "language": "ZH",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.7,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=The%20Early%20Spring"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/yiAzR6wGqjyAotZ4DvFvFeo8QS0.jpg",
+      "color": "#423a66",
+      "summary": "New to Beijing, Shang Zhitao crosses paths with Luan Nian, a true creative genius. Bold and open-hearted, she grows stronger step by step and gradually breaks through the defenses around Luan's guarded heart. Drawn to each other, they find themselves caught in an intense, on-again, off-again relationship in the urban jungle. To love is to summon all your courage and leave no regrets, to heal each other, and to grow together. But when love and her career pull her in different directions, she puts her career first. When she has come into her own and he has learned to soften his sharp edges, they finally stand as equals, ready to write a new ending together..."
+    },
+    {
+      "id": "tmdb-movie-1084242",
+      "tmdbId": 1084242,
+      "name": "Zootopia 2",
+      "type": "movie",
+      "year": 2025,
+      "language": "English",
+      "genres": [
+        "Animation",
+        "Adventure",
+        "Comedy",
+        "Mystery",
+        "Family"
+      ],
+      "rating": 7.7,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Zootopia%202"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/oJ7g2CifqpStmoYQyaLQgEU32qO.jpg",
+      "color": "#423a66",
+      "summary": "After cracking the biggest case in Zootopia's history, rookie cops Judy Hopps and Nick Wilde find themselves on the twisting trail of a great mystery when Gary De'Snake arrives and turns the animal metropolis upside down. To crack the case, Judy and Nick must go undercover to unexpected new parts of town, where their growing partnership is tested like never before."
+    },
+    {
+      "id": "tmdb-movie-83533",
+      "tmdbId": 83533,
+      "name": "Avatar: Fire and Ash",
+      "type": "movie",
+      "year": 2025,
+      "language": "English",
+      "genres": [
+        "Science Fiction",
+        "Adventure",
+        "Fantasy"
+      ],
+      "rating": 7.6,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Avatar%3A%20Fire%20and%20Ash"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/bRBeSHfGHwkEpImlhxPmOcUsaeg.jpg",
+      "color": "#556b7e",
+      "summary": "In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri face a new threat on Pandora: the Ash People, a violent and power-hungry Na'vi tribe led by the ruthless Varang. Jake's family must fight for their survival and the future of Pandora in a conflict that pushes them to their emotional and physical limits."
+    },
+    {
+      "id": "tmdb-tv-4614",
+      "tmdbId": 4614,
+      "name": "NCIS",
+      "type": "series",
+      "year": 2003,
+      "language": "English",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Action & Adventure"
+      ],
+      "rating": 7.6,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=NCIS"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/mBcu8d6x6zB1el3MPNl7cZQEQ31.jpg",
+      "color": "#a27b55",
+      "summary": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position."
+    },
+    {
+      "id": "tmdb-tv-1434",
+      "tmdbId": 1434,
+      "name": "Family Guy",
+      "type": "series",
+      "year": 1999,
+      "language": "English",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "rating": 7.4,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Family%20Guy"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/3PFsEuAiyLkWsP4GG6dIV37Q6gu.jpg",
+      "color": "#a27b55",
+      "summary": "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for movies). The final member of the family is Brian - a talking dog and much more than a pet, he keeps Stewie in check whilst sipping Martinis and sorting through his own life issues."
+    },
+    {
+      "id": "tmdb-tv-549",
+      "tmdbId": 549,
+      "name": "Law & Order",
+      "type": "series",
+      "year": 1990,
+      "language": "English",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "rating": 7.3,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Law%20%26%20Order"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/haJ9eHytVO3H3JooMJG1DiWwDNm.jpg",
+      "color": "#aa6b4b",
+      "summary": "In cases ripped from the headlines, police investigate serious and often deadly crimes, weighing the evidence and questioning the suspects until someone is taken into custody. The district attorney's office then builds a case to convict the perpetrator by proving the person guilty beyond a reasonable doubt. Working together, these expert teams navigate all sides of the complex criminal justice system to make New York a safer place."
+    },
+    {
+      "id": "tmdb-movie-454639",
+      "tmdbId": 454639,
+      "name": "Masters of the Universe",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Science Fiction"
+      ],
+      "rating": 7.2,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Masters%20of%20the%20Universe"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg",
+      "color": "#aa6b4b",
+      "summary": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe."
+    },
+    {
+      "id": "tmdb-movie-1083381",
+      "tmdbId": 1083381,
+      "name": "Backrooms",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Science Fiction"
+      ],
+      "rating": 7.1,
+      "services": [
+        "sonyliv"
+      ],
+      "links": {
+        "sonyliv": "https://www.google.com/search?q=sonyliv.com%20Backrooms"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+      "color": "#6f3025",
+      "summary": "A strange doorway appears in the basement of a furniture showroom."
+    },
+    {
+      "id": "tmdb-tv-502",
+      "tmdbId": 502,
+      "name": "Sesame Street",
+      "type": "series",
+      "year": 1969,
+      "language": "English",
+      "genres": [
+        "Kids",
+        "Comedy"
+      ],
+      "rating": 7.1,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Sesame%20Street"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/14k9BfZ2p4rQBMeJ5crKTfUZVwD.jpg",
+      "color": "#423a66",
+      "summary": "On a special inner city street, the inhabitants—human and muppet—teach preschoolers basic educational and social concepts using comedy, cartoons, games, and songs."
+    },
+    {
+      "id": "tmdb-movie-1731694",
+      "tmdbId": 1731694,
+      "name": "LEGO Star Wars: The Mandalorian",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Animation",
+        "Science Fiction",
+        "Adventure",
+        "Family",
+        "Action"
+      ],
+      "rating": 7,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=LEGO%20Star%20Wars%3A%20The%20Mandalorian"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/x3HEvYXWOW6WHqsHmg2MUVy3SLm.jpg",
+      "color": "#a27b55",
+      "summary": "The Mandalorian and Grogu join their misfit allies for an epic party, celebrating their heroism. As friends regale the crowd with tales of their adventures, a pirate threat looms."
+    },
+    {
+      "id": "tmdb-movie-1314481",
+      "tmdbId": 1314481,
+      "name": "The Devil Wears Prada 2",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 7,
+      "services": [
+        "jiohotstar"
+      ],
+      "links": {
+        "jiohotstar": "https://www.hotstar.com/in/search?q=The%20Devil%20Wears%20Prada%202"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/xTI42pmsP5EDnvsNJPEDubwWBQO.jpg",
+      "color": "#6f3025",
+      "summary": "Andy Sachs returns to Runway as Miranda Priestly navigates a new media landscape and Runway's position within. The duo reconnect with former assistant Emily Charlton, now the head of a luxury brand that possesses funding which could ensure Runway's survival."
+    },
+    {
+      "id": "tmdb-movie-860508",
+      "tmdbId": 860508,
+      "name": "The Whisper Man",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "rating": 6.8,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=The%20Whisper%20Man"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/6UqflU8Qqkz7Dq4swJPqs0ZJjY4.jpg",
+      "color": "#4d6267",
+      "summary": "When his young son vanishes, a widower enlists help from his estranged father, a retired detective who put away the serial killer now linked to the case."
+    },
+    {
+      "id": "tmdb-movie-1516698",
+      "tmdbId": 1516698,
+      "name": "The Last Sunrise",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "rating": 6.7,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=The%20Last%20Sunrise"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/3PWJqDfygN0YNNjWsDUOXclCp3h.jpg",
+      "color": "#4d6267",
+      "summary": "Ry, a college student with a chronic illness, escapes to Mallorca for the summer with her mother, where she unexpectedly falls for a local and begins to embrace living in the moment. But as her condition worsens and long-hidden family secrets come to light, everything she has found before summer's end is threatened."
+    },
+    {
+      "id": "tmdb-movie-1386315",
+      "tmdbId": 1386315,
+      "name": "The Runner",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Thriller",
+        "Action"
+      ],
+      "rating": 6.7,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=The%20Runner"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
+      "color": "#46634e",
+      "summary": "Maia Marten, a brilliant London lawyer, has her life shattered by a single call on her morning run: her son has been taken. To get him back, she must keep running, obey every ruthless command, and trust no one-each second a test of how far a mother will go to save her child."
+    },
+    {
+      "id": "tmdb-tv-45140",
+      "tmdbId": 45140,
+      "name": "Teen Titans Go!",
+      "type": "series",
+      "year": 2013,
+      "language": "English",
+      "genres": [
+        "Animation",
+        "Action & Adventure",
+        "Comedy",
+        "Family",
+        "Sci-Fi & Fantasy"
+      ],
+      "rating": 6.4,
+      "services": [
+        "netflix",
+        "jiohotstar"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Teen%20Titans%20Go!",
+        "jiohotstar": "https://www.hotstar.com/in/search?q=Teen%20Titans%20Go!"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
+      "color": "#50777e",
+      "summary": "Robin, Starfire, Raven, Beast Boy and Cyborg return in all-new, comedic adventures. They may be super heroes who save the world every day ... but somebody still has to do the laundry!"
+    },
+    {
+      "id": "tmdb-movie-1432706",
+      "tmdbId": 1432706,
+      "name": "Bury the Devil",
+      "type": "movie",
+      "year": 2026,
+      "language": "English",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "rating": 5.8,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=Bury%20the%20Devil"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/yQ3GeVsebrhOPIBhIdoSslbndEv.jpg",
+      "color": "#596f89",
+      "summary": "When a hospice nurse finds herself trapped with a dementia patient, she begins to suspect something else is wrong with the woman, something otherworldly, and must fight to survive the night."
+    },
+    {
+      "id": "tmdb-movie-1355228",
+      "tmdbId": 1355228,
+      "name": "Gandhari",
+      "type": "movie",
+      "year": 2026,
+      "language": "Hindi",
+      "genres": [
+        "Action",
+        "Drama",
+        "Thriller"
+      ],
+      "rating": 4.6,
+      "services": [
+        "netflix"
+      ],
+      "links": {
+        "netflix": "https://www.netflix.com/search?q=Gandhari"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/aF3IhwS1mrVfvM9OMXmTaXAT0l8.jpg",
+      "color": "#4d6267",
+      "summary": "When a mother loses her eyesight and her daughter in a kidnapping, she takes matters into her own hands to hunt down those responsible."
+    },
+    {
+      "id": "tmdb-movie-755898",
+      "tmdbId": 755898,
+      "name": "War of the Worlds",
+      "type": "movie",
+      "year": 2025,
+      "language": "English",
+      "genres": [
+        "Science Fiction",
+        "Thriller"
+      ],
+      "rating": 4,
+      "services": [
+        "prime"
+      ],
+      "links": {
+        "prime": "https://www.primevideo.com/search/ref=atv_nb_sug?phrase=War%20of%20the%20Worlds"
+      },
+      "poster": "https://image.tmdb.org/t/p/w500/yvirUYrva23IudARHn3mMGVxWqM.jpg",
+      "color": "#4d6267",
+      "summary": "Will Radford is a top analyst for Homeland Security who tracks potential threats through a mass surveillance program, until one day an attack by an unknown entity leads him to question whether the government is hiding something from him... and from the rest of the world."
+    }
+  ]
+}
