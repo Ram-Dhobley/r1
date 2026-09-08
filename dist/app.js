@@ -1,11 +1,11 @@
 const services = [
-  { id: "netflix", name: "Netflix", mark: "N" },
-  { id: "prime", name: "Prime Video", mark: "P" },
-  { id: "jiohotstar", name: "JioHotstar", mark: "J" },
-  { id: "sonyliv", name: "Sony LIV", mark: "S" },
-  { id: "zee5", name: "ZEE5", mark: "Z" },
-  { id: "apple", name: "Apple TV+", mark: "A" },
-  { id: "lionsgate", name: "Lionsgate Play", mark: "L" },
+  { id: "netflix", name: "Netflix", logo: "https://www.google.com/s2/favicons?domain=netflix.com&sz=128" },
+  { id: "prime", name: "Prime Video", logo: "https://www.google.com/s2/favicons?domain=primevideo.com&sz=128" },
+  { id: "jiohotstar", name: "JioHotstar", logo: "https://www.google.com/s2/favicons?domain=hotstar.com&sz=128" },
+  { id: "sonyliv", name: "Sony LIV", logo: "https://www.google.com/s2/favicons?domain=sonyliv.com&sz=128" },
+  { id: "zee5", name: "ZEE5", logo: "https://www.google.com/s2/favicons?domain=zee5.com&sz=128" },
+  { id: "apple", name: "Apple TV+", logo: "https://www.google.com/s2/favicons?domain=tv.apple.com&sz=128" },
+  { id: "lionsgate", name: "Lionsgate Play", logo: "https://www.google.com/s2/favicons?domain=lionsgateplay.com&sz=128" },
 ];
 
 const demoTitles = [
@@ -41,7 +41,7 @@ function serviceById(id) { return services.find(service => service.id === id); }
 function renderServices() {
   $("serviceGrid").innerHTML = services.map(service => `
     <button class="service-chip ${state.selectedServices.has(service.id) ? "selected" : ""}" data-service="${service.id}" aria-pressed="${state.selectedServices.has(service.id)}">
-      <span class="service-logo">${service.mark}</span>
+      <span class="service-logo"><img src="${service.logo}" alt="" aria-hidden="true" width="28" height="28" loading="lazy" decoding="async"></span>
       <span class="service-name">${service.name}<span class="check">✓</span></span>
     </button>`).join("");
   document.querySelectorAll("[data-service]").forEach(button => button.addEventListener("click", () => {
@@ -82,7 +82,7 @@ function cardTemplate(title) {
   const image = title.poster ? ` background-image:url('${title.poster}')` : "";
   const saved = state.saved.has(String(title.id));
   return `<article class="title-card" data-card-details="${title.id}" tabindex="0" role="button" aria-label="Open details for ${title.name}">
-    <div class="poster ${title.poster ? "has-image" : ""}" style="--poster:${title.color || "#526273"};${image}"><span class="poster-title">${title.name}</span><span class="poster-badge">${label}</span></div>
+    <div class="poster ${title.poster ? "has-image" : ""}" style="--poster:${title.color || "#526273"};${image}"><span class="poster-badge">${label}</span></div>
     <div class="card-body">
       <div class="card-topline"><span>${title.language} · ${title.year}</span><span class="rating"><span class="star">★</span> ${title.rating}</span></div>
       <h3>${title.name}</h3>
