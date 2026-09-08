@@ -4,7 +4,7 @@ Watchwise helps people find something good to watch across the streaming service
 
 ## Live catalog setup
 
-The app can load `dist/data/catalog.json` when present. The included GitHub Actions workflow refreshes that file every six hours using TMDB’s API for India (`IN`), then deploys the updated catalog to GitHub Pages.
+The app can load `dist/data/catalog.json` when present. The included GitHub Actions workflow refreshes that file once daily using TMDB’s API for India (`IN`), then deploys the updated catalog to GitHub Pages.
 
 1. Create a TMDB API Read Access Token.
 2. In the GitHub repository, add it as an Actions secret named `TMDB_READ_TOKEN`.
