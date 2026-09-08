@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f5f1" />
+    <title>Watchwise — Stop scrolling. Start watching.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Watchwise home">
+          <span class="brand-mark">◒</span>
+          <span>watchwise</span>
+        </a>
+        <div class="topbar-right">
+          <span class="saved-count"><span class="tiny-dot"></span><span id="savedCount">0</span> saved</span>
+          <button class="icon-button" id="helpButton" aria-label="About Watchwise">?</button>
+        </div>
+      </header>
+
+      <section class="intro" id="top">
+        <div>
+          <p class="eyebrow">YOUR STREAMING COMPASS</p>
+          <h1>Find something<br /><em>worth watching.</em></h1>
+          <p class="intro-copy">Tell us what you have. We’ll narrow the universe down to a few genuinely good options.</p>
+        </div>
+        <div class="orbit" aria-hidden="true">
+          <div class="orbit-ring ring-one"></div>
+          <div class="orbit-ring ring-two"></div>
+          <div class="orbit-core">▶</div>
+          <span class="orbit-label label-one">IMDb</span>
+          <span class="orbit-label label-two">OTT</span>
+          <span class="orbit-label label-three">Tonight</span>
+        </div>
+      </section>
+
+      <section class="setup-card" aria-labelledby="setupTitle">
+        <div class="section-heading">
+          <div>
+            <span class="step">01</span>
+            <h2 id="setupTitle">What do you subscribe to?</h2>
+          </div>
+          <span class="selection-status" id="subscriptionStatus">Choose at least one</span>
+        </div>
+        <div class="service-grid" id="serviceGrid"></div>
+      </section>
+
+      <section class="filter-area" aria-labelledby="filterTitle">
+        <div class="section-heading filter-heading">
+          <div>
+            <span class="step">02</span>
+            <h2 id="filterTitle">Shape the mood</h2>
+          </div>
+          <button class="reset-button" id="resetButton">Reset filters</button>
+        </div>
+        <div class="filter-grid">
+          <label class="filter-field search-field">
+            <span>Search title</span>
+            <input id="searchFilter" type="search" placeholder="Try a movie or show name" autocomplete="off" />
+          </label>
+          <label class="filter-field">
+            <span>Language</span>
+            <select id="languageFilter">
+              <option value="all">Any language</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Genre</span>
+            <select id="genreFilter">
+              <option value="all">Any genre</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Type</span>
+            <select id="typeFilter">
+              <option value="all">Movies + shows</option>
+              <option value="movie">Movies</option>
+              <option value="series">Shows</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="results-area" aria-labelledby="resultsTitle">
+        <div class="results-toolbar">
+          <div>
+            <span class="step">03</span>
+            <h2 id="resultsTitle">Your watchlist for tonight <span class="result-count" id="resultCount"></span></h2>
+          </div>
+          <div class="toolbar-actions">
+            <span class="data-status" id="dataStatus"><span class="tiny-dot"></span>Demo catalog</span>
+            <button class="refresh-button" id="refreshButton">Refresh ↻</button>
+            <label class="sort-field">Sort by
+              <select id="sortFilter">
+                <option value="rating">IMDb rating</option>
+                <option value="year">Newest first</option>
+                <option value="name">Name A–Z</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="results-grid" id="resultsGrid"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon">⌁</div>
+          <h3>Nothing here yet.</h3>
+          <p>Try adding another service or loosening one of your filters.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Built for the “what should we watch?” moment.</span>
+        <span>Live mode: TMDB catalog · Availability can change</span>
+      </footer>
+    </main>
+
+    <dialog id="detailDialog" class="detail-dialog">
+      <button class="close-dialog" id="closeDialog" aria-label="Close details">×</button>
+      <div id="dialogContent"></div>
+    </dialog>
+    <dialog id="helpDialog" class="help-dialog">
+      <button class="close-dialog" id="closeHelp" aria-label="Close about">×</button>
+      <p class="eyebrow">ABOUT WATCHWISE</p>
+      <h2>Less browsing.<br /><em>More watching.</em></h2>
+      <p>Watchwise is a single-screen way to browse titles across the streaming services you already pay for. This prototype ships with a small example catalog; the next step is wiring it to a live title and availability provider.</p>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
