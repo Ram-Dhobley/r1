@@ -5,12 +5,8 @@ if (!token) throw new Error("TMDB_READ_TOKEN is required");
 
 const region = process.env.TMDB_REGION || "IN";
 const language = process.env.TMDB_LANGUAGE || "en-IN";
-const pages = Number(process.env.TMDB_PAGES || 3);
+const providerPages = Number(process.env.TMDB_PROVIDER_PAGES || 500);
 const output = process.env.CATALOG_OUTPUT || "dist/data/catalog.json";
-const discoveryLanguages = (process.env.TMDB_LANGUAGES || "en,hi,ta,te,ml,kn,bn,mr,pa")
-  .split(",")
-  .map(code => code.trim())
-  .filter(Boolean);
 const headers = { Authorization: `Bearer ${token}`, accept: "application/json" };
 const baseUrl = "https://api.themoviedb.org/3";
 
@@ -62,26 +58,27 @@ const genreMaps = {
   tv: new Map((await tmdb("/genre/tv/list", { language })).genres.map(row => [row.id, row.name])),
 };
 
-async function discover(type, page, originalLanguage) {
+async function providerDirectory(type) {
+  const response = await tmdb(`/watch/providers/${type}`, { watch_region: region, language });
+  return response.results || [];
+}
+
+async function discoverByProvider(type, providerId, page) {
   return tmdb(`/discover/${type}`, {
     language,
     watch_region: region,
     region,
+    with_watch_providers: providerId,
+    with_watch_monetization_types: "flatrate|free|ads",
     include_adult: false,
     include_video: false,
     sort_by: "popularity.desc",
-    vote_count_gte: originalLanguage ? 10 : 30,
-    ...(originalLanguage ? { with_original_language: originalLanguage } : {}),
+    vote_count_gte: 0,
     page,
   });
 }
 
-async function enrich(item, type) {
-  const providers = await tmdb(`/${type}/${item.id}/watch/providers`);
-  const india = providers.results?.[region] || {};
-  const providerRows = [...(india.flatrate || []), ...(india.free || []), ...(india.ads || [])];
-  const mapped = [...new Set(providerRows.map(row => serviceId(row.provider_name)).filter(Boolean))];
-  if (!mapped.length) return null;
+function toTitle(item, type, mappedServices) {
   const name = item.title || item.name;
   const date = item.release_date || item.first_air_date || "";
   return {
@@ -93,36 +90,53 @@ async function enrich(item, type) {
     language: languageName(item.original_language),
     genres: (item.genre_ids || []).map(id => genreMaps[type].get(id)).filter(Boolean),
     rating: Number((item.vote_average || 0).toFixed(1)),
-    services: mapped,
-    links: Object.fromEntries(mapped.map(id => [id, serviceDeepLink(id, name)])),
+    services: mappedServices,
+    links: Object.fromEntries(mappedServices.map(id => [id, serviceDeepLink(id, name)])),
     poster: item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : "",
     color: colorFor(item.id),
     summary: item.overview || "No summary available.",
   };
 }
 
+async function collectProvider(type, target) {
+  const firstPage = await discoverByProvider(type, target.providerId, 1);
+  const totalPages = Math.min(firstPage.total_pages || 1, providerPages);
+  const rows = firstPage.results.map(item => ({ item, type, service: target.service }));
+  for (let page = 2; page <= totalPages; page += 1) {
+    const result = await discoverByProvider(type, target.providerId, page);
+    rows.push(...result.results.map(item => ({ item, type, service: target.service })));
+  }
+  console.log(`${type}/${target.service}: fetched ${rows.length} titles across ${totalPages} page${totalPages === 1 ? "" : "s"}`);
+  return rows;
+}
+
 const raw = [];
-const profiles = [...discoveryLanguages.map(originalLanguage => ({ originalLanguage })), { originalLanguage: null }];
 for (const type of ["movie", "tv"]) {
-  for (const profile of profiles) {
-    for (let page = 1; page <= pages; page += 1) {
-      const result = await discover(type, page, profile.originalLanguage);
-      raw.push(...result.results.map(item => ({ item, type })));
-    }
+  const providerRows = await providerDirectory(type);
+  const targets = providerRows
+    .map(row => ({ providerId: row.provider_id, service: serviceId(row.provider_name) }))
+    .filter(row => row.service);
+  const uniqueTargets = [...new Map(targets.map(target => [`${target.service}-${target.providerId}`, target])).values()];
+  if (!uniqueTargets.length) throw new Error(`No supported ${type} providers found for ${region}`);
+  for (const target of uniqueTargets) {
+    raw.push(...await collectProvider(type, target));
   }
 }
 
-const unique = [...new Map(raw.map(row => [`${row.type}-${row.item.id}`, row])).values()];
-const enriched = [];
-for (let index = 0; index < unique.length; index += 8) {
-  const batch = await Promise.all(unique.slice(index, index + 8).map(row => enrich(row.item, row.type)));
-  enriched.push(...batch.filter(Boolean));
+const merged = new Map();
+for (const row of raw) {
+  const key = `${row.type}-${row.item.id}`;
+  const existing = merged.get(key);
+  if (existing) existing.services.add(row.service);
+  else merged.set(key, { ...row, services: new Set([row.service]) });
 }
+const enriched = [...merged.values()].map(row => toTitle(row.item, row.type, [...row.services]));
 
 const catalog = {
   updatedAt: new Date().toISOString(),
   source: "TMDB",
   region,
+  coverage: `Provider catalogue, up to ${providerPages} pages per supported service and media type`,
   items: enriched.sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name)),
 };
 await mkdir(output.split("/").slice(0, -1).join("/") || ".", { recursive: true });
