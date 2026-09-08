@@ -1,7 +1,7 @@
 const services = [
   { id: "netflix", name: "Netflix", mark: "N" },
   { id: "prime", name: "Prime Video", mark: "P" },
-  { id: "hotstar", name: "JioHotstar", mark: "J" },
+  { id: "jiohotstar", name: "JioHotstar", mark: "J" },
   { id: "sonyliv", name: "Sony LIV", mark: "S" },
   { id: "zee5", name: "ZEE5", mark: "Z" },
   { id: "apple", name: "Apple TV+", mark: "A" },
