@@ -80,13 +80,14 @@ function filteredTitles() {
 function cardTemplate(title) {
   const label = title.type === "series" ? "SHOW" : "MOVIE";
   const image = title.poster ? ` background-image:url('${title.poster}')` : "";
-  return `<article class="title-card">
+  const saved = state.saved.has(String(title.id));
+  return `<article class="title-card" data-card-details="${title.id}" tabindex="0" role="button" aria-label="Open details for ${title.name}">
     <div class="poster ${title.poster ? "has-image" : ""}" style="--poster:${title.color || "#526273"};${image}"><span class="poster-title">${title.name}</span><span class="poster-badge">${label}</span></div>
     <div class="card-body">
       <div class="card-topline"><span>${title.language} · ${title.year}</span><span class="rating"><span class="star">★</span> ${title.rating}</span></div>
       <h3>${title.name}</h3>
       <p class="card-summary">${title.summary}</p>
-      <div class="card-actions"><button class="details-button" data-details="${title.id}">See details →</button><button class="save-button ${state.saved.has(title.id) ? "saved" : ""}" data-save="${title.id}" aria-label="${state.saved.has(title.id) ? "Remove from saved" : "Save"}">${state.saved.has(title.id) ? "✓" : "+"}</button></div>
+      <div class="card-actions"><button class="details-button" data-details="${title.id}">Open details →</button><button class="save-button ${saved ? "saved" : ""}" data-save="${title.id}" aria-label="${saved ? "Remove from saved" : "Save for later"}" title="${saved ? "Remove from saved" : "Save for later"}"><span>${saved ? "✓" : "+"}</span><span>${saved ? "Saved" : "Save"}</span></button></div>
     </div>
   </article>`;
 }
@@ -96,7 +97,22 @@ function renderResults() {
   $("resultCount").textContent = `${result.length} title${result.length === 1 ? "" : "s"}`;
   $("resultsGrid").innerHTML = result.map(cardTemplate).join("");
   $("emptyState").hidden = result.length !== 0;
-  document.querySelectorAll("[data-details]").forEach(button => button.addEventListener("click", () => openDetails(Number(button.dataset.details))));
+  document.querySelectorAll("[data-card-details]").forEach(card => {
+    card.addEventListener("click", event => {
+      if (event.target.closest("button")) return;
+      openDetails(card.dataset.cardDetails);
+    });
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openDetails(card.dataset.cardDetails);
+      }
+    });
+  });
+  document.querySelectorAll("[data-details]").forEach(button => button.addEventListener("click", event => {
+    event.stopPropagation();
+    openDetails(button.dataset.details);
+  }));
   document.querySelectorAll("[data-save]").forEach(button => button.addEventListener("click", () => {
     const id = button.dataset.save;
     state.saved.has(id) ? state.saved.delete(id) : state.saved.add(id);
@@ -108,6 +124,7 @@ function renderResults() {
 
 function openDetails(id) {
   const title = titles.find(item => String(item.id) === String(id));
+  if (!title) return;
   const links = title.services.filter(id => state.selectedServices.has(id)).map(id => {
     const service = serviceById(id);
     if (title.links && title.links[id]) return `<a class="watch-link" target="_blank" rel="noreferrer" href="${title.links[id]}">${service.name} ↗</a>`;
