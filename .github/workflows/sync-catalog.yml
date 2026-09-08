@@ -2,6 +2,11 @@ name: Refresh Watchwise catalog
 
 on:
   workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - scripts/sync_tmdb.mjs
+      - .github/workflows/sync-catalog.yml
   schedule:
     - cron: "17 2 * * *"
 
@@ -23,8 +28,7 @@ jobs:
           TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
           TMDB_REGION: IN
           TMDB_LANGUAGE: en-IN
-          TMDB_PAGES: 4
-          TMDB_LANGUAGES: en,hi,ta,te,ml,kn,bn,mr,pa
+          TMDB_PROVIDER_PAGES: 500
           CATALOG_OUTPUT: dist/data/catalog.json
         run: node scripts/sync_tmdb.mjs
       - name: Commit refreshed catalog
