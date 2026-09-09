@@ -61,7 +61,7 @@ function isGenericSearchLink(url) {
 
 function renderServices() {
   $("serviceGrid").innerHTML = services.map(service => `
-    <button class="service-chip ${state.selectedServices.has(service.id) ? "selected" : ""}" data-service="${service.id}" aria-pressed="${state.selectedServices.has(service.id)}">
+    <button class="service-option ${state.selectedServices.has(service.id) ? "selected" : ""}" data-service="${service.id}" aria-pressed="${state.selectedServices.has(service.id)}">
       <span class="service-logo"><img src="${service.logo}" alt="" aria-hidden="true" width="28" height="28" loading="lazy" decoding="async"></span>
       <span class="service-name">${service.name}<span class="check">✓</span></span>
     </button>`).join("");
@@ -170,6 +170,18 @@ $("searchFilter").addEventListener("input", event => { state.query = event.targe
 $("sortFilter").addEventListener("change", event => { state.sort = event.target.value; renderResults(); });
 $("resetButton").addEventListener("click", resetFilters);
 $("refreshButton").addEventListener("click", () => loadCatalog(true));
+$("searchToggle").addEventListener("click", () => {
+  const open = $("headerSearch").classList.toggle("open");
+  $("searchToggle").setAttribute("aria-expanded", String(open));
+  if (open) $("searchFilter").focus();
+});
+document.addEventListener("click", event => {
+  if (!event.target.closest(".header-search, .search-toggle") && $("headerSearch").classList.contains("open")) {
+    $("headerSearch").classList.remove("open");
+    $("searchToggle").setAttribute("aria-expanded", "false");
+  }
+  if (!event.target.closest(".ott-dropdown") && $("servicePicker").open) $("servicePicker").open = false;
+});
 $("closeDialog").addEventListener("click", () => $("detailDialog").close());
 $("detailDialog").addEventListener("click", event => { if (event.target === $("detailDialog")) $("detailDialog").close(); });
 $("helpButton").addEventListener("click", () => $("helpDialog").showModal());
