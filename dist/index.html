@@ -42,12 +42,12 @@
               <div class="service-menu" id="serviceGrid"></div>
             </details>
           </div>
-          <label class="filter-field compact-filter">
-            <span>Language</span>
-            <select id="languageFilter">
-              <option value="all">Any language</option>
-            </select>
-          </label>
+          <div class="filter-field compact-filter">
+            <details class="filter-dropdown language-dropdown" id="languagePicker">
+              <summary><span class="dropdown-label">Language</span><span class="dropdown-value" id="languageStatus">Any language</span><span class="chevron"></span></summary>
+              <div class="multi-select-menu" id="languageMenu"></div>
+            </details>
+          </div>
           <label class="filter-field compact-filter">
             <span>Genre</span>
             <select id="genreFilter">
