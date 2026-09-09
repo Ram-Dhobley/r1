@@ -55,20 +55,18 @@ function normalizeTitles(items) {
 
 function serviceById(id) { return services.find(service => service.id === id); }
 
-const serviceSearchScopes = {
-  netflix: "netflix.com/in/title",
-  prime: "primevideo.com/detail",
-  jiohotstar: "hotstar.com/in",
-  sonyliv: "sonyliv.com",
-  zee5: "zee5.com",
-  apple: "tv.apple.com",
-  lionsgate: "lionsgateplay.com",
-};
-
 function serviceDeepLink(id, name) {
-  const scope = serviceSearchScopes[id] || id;
-  const query = encodeURIComponent(`site:${scope} "${name}"`);
-  return `https://www.google.com/search?btnI=1&q=${query}`;
+  const query = encodeURIComponent(name);
+  const searchUrls = {
+    netflix: `https://www.netflix.com/in/search?q=${query}`,
+    prime: `https://www.primevideo.com/search/ref=atv_nb_sr?phrase=${query}`,
+    jiohotstar: `https://www.hotstar.com/in/search?q=${query}`,
+    sonyliv: `https://www.sonyliv.com/search?query=${query}`,
+    zee5: `https://www.zee5.com/search?q=${query}`,
+    apple: `https://tv.apple.com/in/search?term=${query}`,
+    lionsgate: `https://www.lionsgateplay.com/search?q=${query}`,
+  };
+  return searchUrls[id] || `https://www.google.com/search?q=${query}`;
 }
 
 function isGenericSearchLink(url) {
