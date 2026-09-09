@@ -23,20 +23,23 @@
         <div class="topbar-right">
           <span class="watch-counter" title="Unique watch-link clicks recorded today"><span class="tiny-dot"></span><span id="watchClicks">—</span> watch clicks today</span>
           <span class="saved-count"><span class="tiny-dot"></span><span id="savedCount">0</span> saved</span>
+          <button class="icon-button search-toggle" id="searchToggle" aria-label="Search titles" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"></circle><path d="m16 16 5 5"></path></svg></button>
           <button class="icon-button" id="helpButton" aria-label="About Watchwise">?</button>
+        </div>
+        <div class="header-search" id="headerSearch">
+          <label for="searchFilter">Search titles</label>
+          <input id="searchFilter" type="search" placeholder="Search a movie or show" autocomplete="off" />
         </div>
       </header>
 
       <section class="control-bar" aria-label="Catalog controls">
         <div class="control-bar-inner">
           <div class="services-control">
-            <span class="compact-label">OTT services <span class="service-selection" id="subscriptionStatus">Choose at least one</span></span>
-            <div class="service-grid" id="serviceGrid"></div>
+            <details class="filter-dropdown ott-dropdown" id="servicePicker">
+              <summary><span class="dropdown-label">OTT services</span><span class="dropdown-value" id="subscriptionStatus">Choose at least one</span><span class="chevron"></span></summary>
+              <div class="service-menu" id="serviceGrid"></div>
+            </details>
           </div>
-          <label class="filter-field compact-filter search-field">
-            <span>Search</span>
-            <input id="searchFilter" type="search" placeholder="Title name" autocomplete="off" />
-          </label>
           <label class="filter-field compact-filter">
             <span>Language</span>
             <select id="languageFilter">
