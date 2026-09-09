@@ -33,9 +33,25 @@ let titles = demoTitles;
 let liveMode = false;
 let lastUpdated = null;
 const savedServices = JSON.parse(localStorage.getItem("watchwise-services") || "null");
-const state = { selectedServices: new Set(savedServices || ["netflix", "prime", "jiohotstar"]), language: "all", genre: "all", type: "all", sort: "rating", query: "", saved: new Set(JSON.parse(localStorage.getItem("watchwise-saved") || "[]").map(String)) };
+const validServiceIds = new Set(services.map(service => service.id));
+const initialServices = (Array.isArray(savedServices) ? savedServices : ["netflix", "prime", "jiohotstar"]).filter(id => validServiceIds.has(id));
+if (Array.isArray(savedServices)) localStorage.setItem("watchwise-services", JSON.stringify(initialServices));
+const state = { selectedServices: new Set(initialServices), language: "all", genre: "all", type: "all", sort: "rating", query: "", saved: new Set(JSON.parse(localStorage.getItem("watchwise-saved") || "[]").map(String)) };
 const $ = (id) => document.getElementById(id);
 const counterNamespace = "watchwise.ramdhobley.chatgpt.site";
+
+const languageLabels = {
+  af: "Afrikaans", ar: "Arabic", as: "Assamese", az: "Azerbaijani", be: "Belarusian", bg: "Bulgarian", bn: "Bengali", bs: "Bosnian", ca: "Catalan", cn: "Chinese", cs: "Czech", cy: "Welsh", da: "Danish", de: "German", el: "Greek", en: "English", es: "Spanish", et: "Estonian", eu: "Basque", fa: "Persian", fi: "Finnish", fr: "French", ga: "Irish", gl: "Galician", gu: "Gujarati", he: "Hebrew", hi: "Hindi", hr: "Croatian", hu: "Hungarian", hy: "Armenian", id: "Indonesian", is: "Icelandic", it: "Italian", ja: "Japanese", ka: "Georgian", kk: "Kazakh", km: "Khmer", kn: "Kannada", ko: "Korean", ku: "Kurdish", ky: "Kyrgyz", la: "Latin", lt: "Lithuanian", lv: "Latvian", mk: "Macedonian", ml: "Malayalam", mn: "Mongolian", mr: "Marathi", ms: "Malay", mt: "Maltese", my: "Burmese", nb: "Norwegian", ne: "Nepali", nl: "Dutch", nn: "Norwegian", or: "Odia", pa: "Punjabi", pl: "Polish", ps: "Pashto", pt: "Portuguese", ro: "Romanian", ru: "Russian", si: "Sinhala", sk: "Slovak", sl: "Slovenian", sq: "Albanian", sr: "Serbian", sv: "Swedish", sw: "Swahili", ta: "Tamil", te: "Telugu", th: "Thai", tl: "Tagalog", tr: "Turkish", uk: "Ukrainian", ur: "Urdu", uz: "Uzbek", vi: "Vietnamese", wo: "Wolof", xh: "Xhosa", yi: "Yiddish", zh: "Chinese", zu: "Zulu", other: "Other"
+};
+
+function readableLanguage(value) {
+  const key = String(value || "").trim().toLowerCase();
+  return languageLabels[key] || languageLabels[key.slice(0, 2)] || "Other";
+}
+
+function normalizeTitles(items) {
+  return items.map(title => ({ ...title, language: readableLanguage(title.language) }));
+}
 
 function serviceById(id) { return services.find(service => service.id === id); }
 
@@ -82,7 +98,7 @@ function populateFilters() {
 }
 
 function updateStatus() {
-  const count = state.selectedServices.size;
+  const count = services.filter(service => state.selectedServices.has(service.id)).length;
   $("subscriptionStatus").textContent = count ? `${count} service${count === 1 ? "" : "s"} selected` : "Choose at least one";
 }
 
@@ -242,7 +258,7 @@ async function loadCatalog(force = false) {
     if (!payload) throw new Error("Live catalog not available");
     const incoming = Array.isArray(payload) ? payload : payload.items;
     if (!Array.isArray(incoming) || !incoming.length) throw new Error("Empty catalog");
-    titles = incoming; liveMode = true; lastUpdated = payload.updatedAt || null;
+    titles = normalizeTitles(incoming); liveMode = true; lastUpdated = payload.updatedAt || null;
     populateFilters();
     updateDataStatus(`Live catalog${lastUpdated ? ` · ${new Date(lastUpdated).toLocaleDateString()}` : ""}`);
     renderResults();
