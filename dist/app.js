@@ -36,7 +36,7 @@ const savedServices = JSON.parse(localStorage.getItem("watchwise-services") || "
 const validServiceIds = new Set(services.map(service => service.id));
 const initialServices = (Array.isArray(savedServices) ? savedServices : ["netflix", "prime", "jiohotstar"]).filter(id => validServiceIds.has(id));
 if (Array.isArray(savedServices)) localStorage.setItem("watchwise-services", JSON.stringify(initialServices));
-const state = { selectedServices: new Set(initialServices), language: "all", genre: "all", type: "all", sort: "rating", query: "", saved: new Set(JSON.parse(localStorage.getItem("watchwise-saved") || "[]").map(String)) };
+const state = { selectedServices: new Set(initialServices), languages: new Set(), genre: "all", type: "all", sort: "rating", query: "", saved: new Set(JSON.parse(localStorage.getItem("watchwise-saved") || "[]").map(String)) };
 const $ = (id) => document.getElementById(id);
 const counterNamespace = "watchwise.ramdhobley.chatgpt.site";
 
@@ -57,29 +57,35 @@ function serviceById(id) { return services.find(service => service.id === id); }
 
 function serviceDeepLink(id, name) {
   const query = encodeURIComponent(name);
-  const searchUrls = {
-    netflix: `https://www.netflix.com/in/search?q=${query}`,
+  const directSearchUrls = {
     prime: `https://www.primevideo.com/search/ref=atv_nb_sr?phrase=${query}`,
-    jiohotstar: `https://www.hotstar.com/in/search?q=${query}`,
-    sonyliv: `https://www.sonyliv.com/search?query=${query}`,
     zee5: `https://www.zee5.com/search?q=${query}`,
-    apple: `https://tv.apple.com/in/search?term=${query}`,
-    lionsgate: `https://www.lionsgateplay.com/search?q=${query}`,
   };
-  return searchUrls[id] || `https://www.google.com/search?q=${query}`;
+  if (directSearchUrls[id]) return directSearchUrls[id];
+  const scopes = {
+    netflix: "netflix.com/in/title",
+    jiohotstar: "hotstar.com/in/movies",
+    sonyliv: "sonyliv.com",
+    apple: "tv.apple.com/in",
+    lionsgate: "lionsgateplay.com",
+  };
+  const siteQuery = encodeURIComponent(`site:${scopes[id] || id} "${name}"`);
+  return `https://www.google.com/search?hl=en&gl=in&udm=14&q=${siteQuery}`;
 }
 
 function isGenericSearchLink(url) {
-  return !url || /google\.com\/search|netflix\.com\/search|primevideo\.com\/search|hotstar\.com\/in\/search/i.test(url);
+  return !url || /google\.com\/search|netflix\.com\/search|primevideo\.com\/search|hotstar\.com\/in\/search|sonyliv\.com\/search|tv\.apple\.com\/in\/search|lionsgateplay\.com\/search/i.test(url);
 }
 
 function renderServices() {
   $("serviceGrid").innerHTML = services.map(service => `
-    <button class="service-option ${state.selectedServices.has(service.id) ? "selected" : ""}" data-service="${service.id}" aria-pressed="${state.selectedServices.has(service.id)}">
+    <button type="button" class="service-option ${state.selectedServices.has(service.id) ? "selected" : ""}" data-service="${service.id}" aria-pressed="${state.selectedServices.has(service.id)}">
       <span class="service-logo"><img src="${service.logo}" alt="" aria-hidden="true" width="28" height="28" loading="lazy" decoding="async"></span>
       <span class="service-name">${service.name}<span class="check">✓</span></span>
     </button>`).join("");
-  document.querySelectorAll("[data-service]").forEach(button => button.addEventListener("click", () => {
+  document.querySelectorAll("[data-service]").forEach(button => button.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
     const id = button.dataset.service;
     state.selectedServices.has(id) ? state.selectedServices.delete(id) : state.selectedServices.add(id);
     localStorage.setItem("watchwise-services", JSON.stringify([...state.selectedServices]));
@@ -90,9 +96,22 @@ function renderServices() {
 function populateFilters() {
   const languages = [...new Set(titles.map(title => title.language))].sort();
   const genres = [...new Set(titles.flatMap(title => title.genres))].sort();
-  $("languageFilter").innerHTML = `<option value="all">Any language</option>${languages.map(language => `<option value="${language}">${language}</option>`).join("")}`;
+  renderLanguageMenu(languages);
   $("genreFilter").innerHTML = `<option value="all">Any genre</option>${genres.map(genre => `<option value="${genre}">${genre}</option>`).join("")}`;
-  $("languageFilter").value = state.language; $("genreFilter").value = state.genre;
+  $("genreFilter").value = state.genre;
+}
+
+function updateLanguageStatus() {
+  const selected = [...state.languages];
+  $("languageStatus").textContent = selected.length === 0 ? "Any language" : selected.length === 1 ? selected[0] : `${selected.length} languages`;
+}
+
+function renderLanguageMenu(languages) {
+  const anySelected = state.languages.size === 0;
+  $("languageMenu").innerHTML = `
+    <button type="button" class="multi-option ${anySelected ? "selected" : ""}" data-language="all" aria-pressed="${anySelected}"><span class="option-check">✓</span><span>Any language</span></button>
+    ${languages.map(language => `<label class="multi-option ${state.languages.has(language) ? "selected" : ""}"><input type="checkbox" data-language="${language}" ${state.languages.has(language) ? "checked" : ""}><span class="option-check">✓</span><span>${language}</span></label>`).join("")}`;
+  updateLanguageStatus();
 }
 
 function updateStatus() {
@@ -104,7 +123,7 @@ function filteredTitles() {
   const list = titles.filter(title => {
     const hasService = title.services.some(service => state.selectedServices.has(service));
     const hasQuery = !state.query || title.name.toLowerCase().includes(state.query.toLowerCase());
-    const hasLanguage = state.language === "all" || title.language === state.language;
+    const hasLanguage = state.languages.size === 0 || state.languages.has(title.language);
     const hasGenre = state.genre === "all" || title.genres.includes(state.genre);
     const hasType = state.type === "all" || title.type === state.type;
     return hasService && hasQuery && hasLanguage && hasGenre && hasType;
@@ -172,12 +191,27 @@ function openDetails(id) {
 }
 
 function resetFilters() {
-  state.language = state.genre = state.type = "all"; state.query = "";
-  $("languageFilter").value = "all"; $("genreFilter").value = "all"; $("typeFilter").value = "all"; $("searchFilter").value = "";
+  state.languages.clear(); state.genre = state.type = "all"; state.query = "";
+  renderLanguageMenu([...new Set(titles.map(title => title.language))].sort());
+  $("genreFilter").value = "all"; $("typeFilter").value = "all"; $("searchFilter").value = "";
   renderResults();
 }
 
-$("languageFilter").addEventListener("change", event => { state.language = event.target.value; renderResults(); });
+$("languageMenu").addEventListener("change", event => {
+  if (!event.target.matches("input[data-language]")) return;
+  const language = event.target.dataset.language;
+  event.target.checked ? state.languages.add(language) : state.languages.delete(language);
+  renderLanguageMenu([...new Set(titles.map(title => title.language))].sort());
+  renderResults();
+});
+$("languageMenu").addEventListener("click", event => {
+  event.stopPropagation();
+  const anyButton = event.target.closest("button[data-language=\"all\"]");
+  if (!anyButton) return;
+  state.languages.clear();
+  renderLanguageMenu([...new Set(titles.map(title => title.language))].sort());
+  renderResults();
+});
 $("genreFilter").addEventListener("change", event => { state.genre = event.target.value; renderResults(); });
 $("typeFilter").addEventListener("change", event => { state.type = event.target.value; renderResults(); });
 $("searchFilter").addEventListener("input", event => { state.query = event.target.value.trim(); renderResults(); });
@@ -194,7 +228,7 @@ document.addEventListener("click", event => {
     $("headerSearch").classList.remove("open");
     $("searchToggle").setAttribute("aria-expanded", "false");
   }
-  if (!event.target.closest(".ott-dropdown") && $("servicePicker").open) $("servicePicker").open = false;
+  if (!event.target.closest(".filter-dropdown")) document.querySelectorAll(".filter-dropdown[open]").forEach(dropdown => { dropdown.open = false; });
 });
 $("closeDialog").addEventListener("click", () => $("detailDialog").close());
 $("detailDialog").addEventListener("click", event => { if (event.target === $("detailDialog")) $("detailDialog").close(); });
